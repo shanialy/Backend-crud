@@ -1,7 +1,6 @@
 const Item = require('../models/Item');
 const { validationResult } = require('express-validator');
 
-// Get all items
 exports.getItems = async (req, res) => {
   try {
     const items = await Item.find();
@@ -12,7 +11,6 @@ exports.getItems = async (req, res) => {
   }
 };
 
-// Get a single item by ID
 exports.getItemById = async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -24,7 +22,6 @@ exports.getItemById = async (req, res) => {
 };
 
 exports.createItem = async (req, res) => {
-    // Validation using express-validator
     const errors = validationResult(req);
   
     if (!errors.isEmpty()) {
@@ -42,9 +39,7 @@ exports.createItem = async (req, res) => {
     }
   };
   
-  // Update an item by ID
   exports.updateItem = async (req, res) => {
-    // Validation using express-validator
     const errors = validationResult(req);
   
     if (!errors.isEmpty()) {
@@ -62,7 +57,6 @@ exports.createItem = async (req, res) => {
     }
   };
 
-// Delete an item by ID
 exports.deleteItem = async (req, res) => {
   try {
     const { id } = req.params;
