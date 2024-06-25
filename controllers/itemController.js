@@ -67,3 +67,13 @@ exports.deleteItem = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+// exports.deleteItem = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     await Item.findByIdAndRemove(id);
+//     res.json({ message: 'Item deleted successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+// };
